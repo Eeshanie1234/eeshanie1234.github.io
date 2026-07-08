@@ -1,0 +1,346 @@
+/* ----- TOP-BAR (logo + nav) ----- */
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      right: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      flex-wrap: wrap;
+      gap: 16px 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.9);
+      color: #1a4b62;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    nav a:hover {
+      background: #fc7979;
+      color: #ffffff;
+      border-color: #fff;
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 8px 20px rgba(26, 75, 98, 0.3);
+    }
+
+    nav a.active {
+      background: #fc7979;
+      color: #ffffff;
+      border-color: #fff;
+    }
+
+
+
+
+
+
+    /* ----- ROOT & RESET ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #FF6B6B;
+      --secondary: #f154a8;
+      --accent: #ff6d85;
+      --dark: #292F36;
+      --light: #F7FFF7;
+    }
+
+    
+    /* ----- HIDDEN HELPER (voor scroll-animatie) ----- */
+    .hidden {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    }
+
+    .show {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    /* ----- HEADER (100vh) ----- */
+    header {
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='rgba(255,255,255,0.1)' d='M0,0 L100,0 L100,100 Q50,80 0,100 Z'/%3E%3C/svg%3E");
+      background-size: cover;
+      z-index: 0;
+    }
+
+    header>* {
+      position: relative;
+      z-index: 1;
+    }
+
+   
+    ----- TITELS & TEKST -----
+    h1 {
+      font-size: clamp(2.4rem, 8vw, 4.2rem);
+      animation: fadeIn 1s ease;
+      margin-bottom: 0.2em;
+      line-height: 1.2;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      margin-top: 0px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+      letter-spacing: 0.3px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    /* ----- PROFIELCIRCLE ----- */
+    .profile-container {
+      width: min(280px, 50vw);
+      height: min(280px, 50vw);
+      max-width: 350px;
+      max-height: 350px;
+      margin-top: 25px;
+      border-radius: 50%;
+      border: 5px solid var(--accent);
+      background: white;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+      animation: float 6s ease-in-out infinite;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-container:hover {
+      transform: scale(1.02) rotate(2deg);
+      box-shadow: 0 18px 40px rgba(255, 107, 107, 0.3);
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .profile-container:hover .profile-img {
+      transform: scale(1.08);
+    }
+
+    /* ----- WRAPPER: VAARDIGHEDEN + FOOTER (100vh) ----- */
+    .bottom-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ----- VAARDIGHEDEN SECTIE ----- */
+    .skills-section {
+      flex: 1;
+      padding: 60px 20px 40px;
+      background: linear-gradient(145deg, #f86cb6, #fd7dbd);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .skills-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .skills-subtitle {
+      color: #fff;
+      font-size: 1.1rem;
+      max-width: 640px;
+      margin: 0 auto 35px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    /* 3x3 GRID */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px 30px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      background: var(--light);
+      padding: 30px 18px 24px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2), box-shadow 0.3s ease;
+      border-bottom: 5px solid #eb1a3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 180px;
+      will-change: transform, box-shadow;
+      /* Elk kaartje krijgt een aparte vertraging via JS, maar we zetten default 0 */
+      transition-delay: 0s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-icon {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover .skill-icon {
+      transform: rotate(8deg) scale(1.1);
+    }
+
+    .skill-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: #555555;
+      line-height: 1.5;
+      max-width: 200px;
+    }
+
+    
+
+    /* ----- ANIMATIONS ----- */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 768px) {
+      .top-bar { flex-direction: column; align-items: center; top: 14px; left: 14px; right: 14px; gap: 10px; }
+      .logo { font-size: 1.4rem; }
+      nav a { padding: 0.3rem 0.9rem; font-size: 0.75rem; }
+      header { padding-top: 110px; padding-bottom: 30px; min-height: 500px; }
+      .profile-container { width: min(200px, 45vw); height: min(200px, 45vw); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .skill-card { padding: 24px 14px 18px; min-height: 160px; }
+      .skill-icon { font-size: 2.8rem; }
+      .skill-card h3 { font-size: 1.05rem; }
+      .skill-card p { font-size: 0.8rem; }
+    }
+
+    @media (max-width: 480px) {
+      .top-bar { left: 8px; right: 8px; top: 10px; }
+      nav a { padding: 0.25rem 0.6rem; font-size: 0.65rem; }
+      h1 { font-size: 1.8rem; }
+      .tagline { font-size: 0.8rem; }
+      .profile-container { width: min(150px, 40vw); height: min(150px, 40vw); border-width: 4px; margin-top: 15px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .skill-card { padding: 18px 10px 14px; border-radius: 14px; min-height: 140px; border-bottom-width: 4px; }
+      .skill-icon { font-size: 2.2rem; margin-bottom: 8px; }
+      .skill-card h3 { font-size: 0.9rem; }
+      .skill-card p { font-size: 0.7rem; max-width: 100%; }
+      .skills-subtitle { font-size: 0.85rem; margin-bottom: 20px; }
+      footer { padding: 12px; }
+      footer p { font-size: 0.7rem; }
+      .social-links a { font-size: 18px; margin: 0 6px; }
+    }
+
+    @media (max-width: 360px) {
+      .skills-grid { gap: 10px; }
+      .skill-card { padding: 14px 8px 12px; min-height: 120px; }
+      .skill-icon { font-size: 1.8rem; margin-bottom: 4px; }
+      .skill-card h3 { font-size: 0.8rem; }
+      .skill-card p { font-size: 0.6rem; }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .skills-grid { gap: 20px; max-width: 750px; }
+      .skill-card { padding: 25px 15px 20px; min-height: 170px; }
+      .skill-icon { font-size: 2.8rem; }
+    }
+
+    @media (min-height: 900px) {
+      .skills-section { padding: 60px 20px; }
+      .skills-grid { gap: 30px; max-width: 1000px; }
+      .skill-card { padding: 35px 22px 28px; min-height: 200px; }
+      .skill-icon { font-size: 3.6rem; }
+      .skill-card h3 { font-size: 1.3rem; }
+      .skill-card p { font-size: 1rem; max-width: 220px; }
+    }
+
+    /* extra: social links in footer */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+
+
+
