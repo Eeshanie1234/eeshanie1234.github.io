@@ -17,7 +17,7 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    background:var(--light);
+    background:linear-gradient(180deg, #fff3f3 0%, #f7f7fb 45%, #f5f1fb 100%);
     color:var(--dark);
 
     display:flex;
@@ -25,14 +25,76 @@ body{
     min-height:100vh;
 }
 
+h1, h2, h3, .logo{
+    font-family:'Quicksand','Poppins',sans-serif;
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 8% 10%, rgba(255,107,107,0.26), transparent 42%),
+        radial-gradient(circle at 92% 15%, rgba(241,84,168,0.24), transparent 42%),
+        radial-gradient(circle at 50% 55%, rgba(255,193,7,0.14), transparent 48%);
+    background-size: 200% 200%;
+    animation: driftBg1 55s linear infinite;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 88%, rgba(167,139,250,0.24), transparent 42%),
+        radial-gradient(circle at 90% 92%, rgba(255,138,101,0.24), transparent 42%),
+        radial-gradient(circle at 45% 10%, rgba(45,212,191,0.16), transparent 44%);
+    background-size: 200% 200%;
+    animation: driftBg2 70s linear infinite;
+    z-index: -1;
+}
+
+@keyframes driftBg1{
+    0%   { background-position: 0% 0%, 100% 0%, 50% 50%; }
+    20%  { background-position: 10% 8%, 90% 12%, 54% 46%; }
+    40%  { background-position: 6% 18%, 94% 4%, 48% 56%; }
+    60%  { background-position: -6% 12%, 106% 14%, 52% 44%; }
+    80%  { background-position: -2% 2%, 102% -2%, 46% 52%; }
+    100% { background-position: 0% 0%, 100% 0%, 50% 50%; }
+}
+
+@keyframes driftBg2{
+    0%   { background-position: 0% 100%, 100% 100%, 50% 50%; }
+    25%  { background-position: 9% 92%, 91% 108%, 46% 54%; }
+    50%  { background-position: -5% 84%, 105% 96%, 54% 48%; }
+    75%  { background-position: 5% 108%, 95% 88%, 48% 46%; }
+    100% { background-position: 0% 100%, 100% 100%, 50% 50%; }
+}
+
+
 /* HEADER */
 
 header{
-    background:linear-gradient(135deg,#fc7979,#ffb5b5);
+    position: relative;
+    overflow: hidden;
     padding:20px 40px;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(255,255,255,0.18), transparent 40%),
+        radial-gradient(circle at 88% 78%, rgba(255,255,255,0.15), transparent 35%),
+        linear-gradient(120deg, #FF6B6B, #f154a8, #ff8a65, #f154a8);
+    background-size: 100% 100%, 100% 100%, 300% 300%;
+    animation: headerGradientShift 16s ease infinite;
+}
+
+@keyframes headerGradientShift {
+    0%   { background-position: 0% 0%, 0% 0%, 0% 50%; }
+    50%  { background-position: 0% 0%, 0% 0%, 100% 50%; }
+    100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
 }
 
 .top-bar{
+    position: relative;
+    z-index: 1;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -44,6 +106,8 @@ header{
     font-size:1.8rem;
     font-weight:700;
     color:white;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 nav{
@@ -53,20 +117,36 @@ nav{
 }
 
 nav a{
+    display: inline-block;
     text-decoration:none;
     color:#1a4b62;
-    background:white;
+    background: rgba(255, 255, 255, 0.9);
     padding:10px 18px;
     border-radius:30px;
     font-weight:600;
-    transition:.3s;
+    border: 2px solid transparent;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all 0.25s ease;
 }
 
 nav a:hover,
 nav a.active{
     background:var(--primary);
     color:white;
-    transform:translateY(-3px);
+    border-color: #fff;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 75, 98, 0.3);
+}
+
+/* Responsive navbar (gedeeld door alle pagina's) */
+@media (max-width: 768px) {
+    .logo { font-size: 1.4rem; }
+    nav a { padding: 0.3rem 0.9rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+    nav a { padding: 0.25rem 0.6rem; font-size: 0.65rem; }
 }
 
 /* MAIN */
@@ -108,7 +188,13 @@ footer{
     background:var(--footer);
     color:white;
     text-align:center;
-    padding:18px;
+    padding:22px 18px;
+    font-size:0.95rem;
+    letter-spacing:0.3px;
+}
+
+footer p{
+    opacity:0.9;
 }
 
 

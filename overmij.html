@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eeshanie Lachman | Coming Soon</title>
+    <title>Eeshanie Lachman | Over mij</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/overmij.css">
@@ -17,64 +21,94 @@
 
         <nav>
             <a href="index.html" >Home</a>
-            <a href="overmij.html"class="active">Over mij</a>
+            <a href="overmij.html" class="active">Over mij</a>
             <a href="projecten.html">Projecten</a>
             <a href="contact.html">Contact</a>
         </nav>
     </div>
 </header>
 
+<div class="page-hero">
+    <h1>Over mij</h1>
+    <p class="page-hero-subtitle">Een klein kijkje in wie ik ben, waar ik vandaan kom en wat mij drijft</p>
+    <svg class="wave-divider" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,32 C240,90 480,0 720,40 C960,80 1200,10 1440,50 L1440,100 L0,100 Z"></path>
+    </svg>
+</div>
+
 <main>
-   
 <div class="container">
         <section>
-            <h1>Achtergrond</h1>
-            <p>Ik ben Eeshanie Lachman, geboren op 7 september 2004, en ik ben opgegroeid in 
+            <h2>Achtergrond</h2>
+            <p>Ik ben Eeshanie Lachman, geboren op 7 september 2004, en ik ben opgegroeid in
             een zorgzame familieomgeving. Ik woon samen met mijn ouders, grootouders en nicht,
-            en als oudste kind binnen het gezin draag ik een zekere verantwoordelijkheid. 
-            Daarnaast help ik als vrijwilliger in het bedrijf van mijn vader, waar ik administratieve 
+            en als oudste kind binnen het gezin draag ik een zekere verantwoordelijkheid.
+            Daarnaast help ik als vrijwilliger in het bedrijf van mijn vader, waar ik administratieve
             werkzaamheden verricht en zo werkervaring opdoe.</p>
         </section>
 
         <section>
-            <h1>Interesses</h1>
-            <p>Mijn interesses liggen zowel op creatieve als actieve gebieden. Ik houd van koken,
-            bakken en zingen, en heb daarnaast interesse in mode. Ook besteed ik mijn tijd graag 
-            aan sporten en wandelen. Naast deze hobby's heb ik een sterke interesse ontwikkeld 
-            in technologie, met name in softwareontwikkeling.</p>
+            <h2>Interesses</h2>
+            <p>Mijn interesses liggen zowel op creatieve als actieve gebieden, en ik sta altijd open
+            om iets nieuws te leren.</p>
+            <div class="interest-tags">
+                <span class="tag">🍳 Koken</span>
+                <span class="tag">🧁 Bakken</span>
+                <span class="tag">🎤 Zingen</span>
+                <span class="tag">👗 Mode</span>
+                <span class="tag">🏃 Sporten</span>
+                <span class="tag">🚶 Wandelen</span>
+                <span class="tag">💻 Technologie</span>
+            </div>
         </section>
 
-
-
-
-
         <section>
-            <h1>Bezochte scholen</h1>
+            <h2>Bezochte scholen</h2>
           <div class="schools">
-    
-    <div class="school">
-        <img src="img/unasat.jpg" alt="UNASAT">
-        <div>
-            <h3>UNASAT</h3>
-            <p>Software Engineering (huidige studie)</p>
+
+    <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <div class="school">
+            <div class="school-photo"><img src="img/havo.jpg" alt="HAVO"></div>
+            <div>
+                <h3>HAVO</h3>
+                <p>Diploma behaald in 2023</p>
+            </div>
         </div>
+        <span class="timeline-status">
+            <span class="status-short">2023</span>
+            <span class="status-full"><strong>HAVO</strong>Diploma behaald in 2023</span>
+        </span>
     </div>
 
-
-    <div class="school">
-        <img src="img/adek.png" alt="Anton de Kom Universiteit">
-        <div>
-            <h3>Anton de Kom Universiteit</h3>
-            <p>Schakelprogramma Geowetenschappen (niet afgerond)</p>
+    <div class="timeline-item">
+        <span class="timeline-marker"></span>
+        <div class="school">
+            <div class="school-photo"><img src="img/adek.png" alt="Anton de Kom Universiteit"></div>
+            <div>
+                <h3>Anton de Kom Universiteit</h3>
+                <p>Schakelprogramma Geowetenschappen (niet afgerond)</p>
+            </div>
         </div>
+        <span class="timeline-status">
+            <span class="status-short">Niet afgerond</span>
+            <span class="status-full"><strong>Anton de Kom Universiteit</strong>Schakelprogramma Geowetenschappen (niet afgerond)</span>
+        </span>
     </div>
 
-    <div class="school">
-        <img src="img/havo.jpg" alt="HAVO">
-        <div>
-            <h3>HAVO</h3>
-            <p>Diploma behaald in 2023</p>
+    <div class="timeline-item timeline-current">
+        <span class="timeline-marker"></span>
+        <div class="school">
+            <div class="school-photo"><img src="img/unasat.jpg" alt="UNASAT"></div>
+            <div>
+                <h3>UNASAT <span class="badge-current">Huidig</span></h3>
+                <p>Software Engineering (huidige studie)</p>
+            </div>
         </div>
+        <span class="timeline-status">
+            <span class="status-short">Huidige studie</span>
+            <span class="status-full"><strong>UNASAT</strong>Software Engineering (huidige studie)</span>
+        </span>
     </div>
 
 </div>

@@ -38,7 +38,26 @@
 
 
 
-    document.addEventListener("mousemove", (e) => {
+    const profilePhoto = document.querySelector('.profile-container');
+    if (profilePhoto) {
+        const profileImg = profilePhoto.querySelector('.profile-img');
+        profilePhoto.addEventListener('click', () => {
+            profileImg.classList.remove('spin');
+            void profileImg.offsetWidth; // reflow, zodat de animatie ook bij snel opnieuw klikken herstart
+            profileImg.classList.add('spin');
+        });
+        profileImg.addEventListener('animationend', () => {
+            profileImg.classList.remove('spin');
+        });
+    }
+
+    let lastPopTime = 0;
+const POP_INTERVAL = 120; // ms tussen sparkles, voorkomt een constante confetti-regen
+
+document.addEventListener("mousemove", (e) => {
+    const now = Date.now();
+    if (now - lastPopTime < POP_INTERVAL) return;
+    lastPopTime = now;
     createPop(e.clientX, e.clientY);
 });
 
