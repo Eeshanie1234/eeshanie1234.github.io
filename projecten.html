@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eeshanie Lachman | Coming Soon</title>
+    <title>Eeshanie Lachman | Projecten</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/projecten.css">
 </head>
 
 <body>
@@ -17,24 +18,123 @@
         <nav>
             <a href="index.html" >Home</a>
             <a href="overmij.html">Over mij</a>
-            <a href="projecten.html"class="active">Projecten</a>
+            <a href="projecten.html" class="active">Projecten</a>
             <a href="contact.html">Contact</a>
         </nav>
     </div>
 </header>
 
+<div class="page-hero">
+    <h1>Projecten</h1>
+    <p class="page-hero-subtitle">Een overzicht van projecten die ik tijdens mijn studie heb gebouwd</p>
+    <svg class="wave-divider" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,32 C240,90 480,0 720,40 C960,80 1200,10 1440,50 L1440,100 L0,100 Z"></path>
+    </svg>
+</div>
+
 <main>
-    <section class="coming-soon">
-        <h1> Coming Soon</h1>
-        <!-- <p>Deze pagina is nog in ontwikkeling. Kom binnenkort terug!</p> -->
-    </section>
+<div class="container">
+
+    <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="c++">C++</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+        <button class="filter-btn" data-filter="java">Java</button>
+        <button class="filter-btn" data-filter="mysql">MySQL</button>
+        <button class="filter-btn" data-filter="packet tracer">Packet Tracer</button>
+        <button class="filter-btn" data-filter="html">HTML</button>
+        <button class="filter-btn" data-filter="css">CSS</button>
+        <button class="filter-btn" data-filter="js">JS</button>
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="project-photo">
+                <img src="img/slimmeverkeerslicht.jpg" alt="Slim verkeerslicht met AI">
+                <span class="project-photo-hint">Bekijk project</span>
+            </div>
+            <div class="project-body">
+                <h2>Slim verkeerslicht met AI</h2>
+                <div class="project-tags">
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                </div>
+                <p>Een verkeerslichtsysteem dat met AI het verkeer herkent en de lichten slim en efficiënt aanstuurt.</p>
+            </div>
+        </div>
+
+        <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="project-photo">
+                <img src="img/battlegame.png" alt="Battle game">
+                <span class="project-photo-hint">Bekijk project</span>
+            </div>
+            <div class="project-body">
+                <h2>Battle Game</h2>
+                <div class="project-tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <p>Een battle game gebouwd in Java, met een MySQL-database voor het opslaan van spelersgegevens en voortgang.</p>
+            </div>
+        </div>
+
+        <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="project-photo">
+                <img src="img/infrastructure.png" alt="Netwerk infrastructuur">
+                <span class="project-photo-hint">Bekijk project</span>
+            </div>
+            <div class="project-body">
+                <h2>Netwerk Infrastructuur</h2>
+                <div class="project-tags">
+                    <span class="tag">Packet Tracer</span>
+                </div>
+                <p>Een netwerkinfrastructuur die ik heb ontworpen en gesimuleerd in Cisco Packet Tracer.</p>
+            </div>
+        </div>
+
+        <div class="project-card" tabindex="0" role="button" aria-haspopup="dialog">
+            <div class="project-photo">
+                <img src="img/magazijn-pos-systeem.png" alt="Magazijn-POS systeem">
+                <span class="project-photo-hint">Bekijk project</span>
+            </div>
+            <div class="project-body">
+                <h2>Magazijn-POS Systeem</h2>
+                <div class="project-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JS</span>
+                    <span class="tag">MySQL</span>
+                </div>
+                <p>Een kassa- en voorraadsysteem voor een magazijn, gebouwd met HTML, CSS, JavaScript en een MySQL-database.</p>
+            </div>
+        </div>
+
+        <p class="no-results">Geen projecten gevonden voor deze filter.</p>
+
+    </div>
+</div>
 </main>
 
 <footer>
     <p>❤️ Gemaakt door Eeshanie Lachman</p>
 </footer>
 
+<div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="project-modal-backdrop"></div>
+    <div class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <button class="project-modal-close" aria-label="Sluiten">&times;</button>
+        <div class="project-modal-photo"><img src="" alt=""></div>
+        <div class="project-modal-body">
+            <h2 id="projectModalTitle"></h2>
+            <div class="project-modal-tags"></div>
+            <p></p>
+        </div>
+    </div>
+</div>
+
 <script src="js/index.js"></script>
+<script src="js/projecten.js"></script>
 
 </body>
 </html>

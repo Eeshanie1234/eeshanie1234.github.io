@@ -2,6 +2,62 @@
         .container {
             max-width: 1000px;
             width: 100%;
+            padding-top: 40px;
+        }
+
+        /* Pagina hero-band met titel */
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            padding: 70px 20px 90px;
+            background:
+                radial-gradient(circle at 12% 20%, rgba(255,255,255,0.18), transparent 40%),
+                radial-gradient(circle at 88% 78%, rgba(255,255,255,0.15), transparent 35%),
+                linear-gradient(120deg, #FF6B6B, #f154a8, #ff8a65, #f154a8);
+            background-size: 100% 100%, 100% 100%, 300% 300%;
+            animation: gradientShift 16s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%   { background-position: 0% 0%, 0% 0%, 0% 50%; }
+            50%  { background-position: 0% 0%, 0% 0%, 100% 50%; }
+            100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+        }
+
+        .page-hero h1 {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(2.2rem, 6vw, 3.2rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .page-hero-subtitle {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
+            font-weight: 300;
+            opacity: 0.95;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .page-hero .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .page-hero .wave-divider path {
+            fill: #f8f8f8;
         }
 
         /* Stijl voor elke section */
@@ -10,32 +66,48 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 30px 35px;
+            padding: 32px 35px;
             margin-bottom: 30px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid transparent;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        section:nth-child(1) { border-top-color: #FF6B6B; }
+        section:nth-child(2) { border-top-color: #a78bfa; }
+        section:nth-child(3) { border-top-color: #2dd4bf; }
 
         section:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         }
 
-        /* Titels (h1) */
-        section h1 {
+        /* Titels (h2) */
+        section h2 {
             font-size: 2rem;
             font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 15px;
             letter-spacing: 0.5px;
             position: relative;
             display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
         }
 
-        
+        section h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(135deg, #FF6B6B, #f154a8);
+            transition: width 0.35s ease;
+        }
 
-        section:hover h1::after {
+        section:hover h2::after {
             width: 100%;
         }
 
@@ -56,17 +128,34 @@
             white-space: pre-line;
         }
 
-        /* Aanpassing voor de derde section (lijst met scholen) */
-        section:nth-child(3) p {
-            background: #f8f9fa;
-            padding: 20px 25px;
-            border-radius: 12px;
-            margin-top: 10px;
-            color: #2d3436;
+        /* Interesse-tags */
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
         }
 
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8f4fd;
+            color: #6d28d9;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+        }
 
-
+        .tag:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+            color: white;
+            box-shadow: 0 8px 18px rgba(167, 139, 250, 0.3);
+        }
 
 
 
@@ -76,7 +165,73 @@
 .schools {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 36px;
+    position: relative;
+}
+
+.schools::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #FF6B6B, #a78bfa, #2dd4bf);
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.timeline-item .school {
+    width: calc(50% - 40px);
+}
+
+.timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.timeline-item:nth-child(even) .school {
+    border-left: none;
+    border-right: 4px solid #a78bfa;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #FF6B6B;
+    box-shadow: 0 0 0 4px #fdf1f1;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(2) .timeline-marker {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 4px #f5f1fd;
+}
+
+.timeline-current .timeline-marker {
+    border-color: #2dd4bf;
+    box-shadow: 0 0 0 4px #eefcfa;
+    animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+    0%, 100% { box-shadow: 0 0 0 4px #eefcfa; }
+    50%      { box-shadow: 0 0 0 8px rgba(45, 212, 191, 0.25); }
 }
 
 .school {
@@ -86,23 +241,126 @@
     background: #f8f9fa;
     padding: 15px;
     border-radius: 12px;
-    transition: transform 0.3s ease;
+    border-left: 4px solid #FF6B6B;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
 .school:hover {
     transform: scale(1.02);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.schools:hover .school:not(:hover) {
+    filter: blur(4px);
+    opacity: 0.55;
+}
+
+/* Statuslabel naast de tijdlijn: korte tekst standaard, volledige omschrijving bij hover */
+.timeline-status {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.85rem;
+    color: #2c3e50;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    max-width: 210px;
+    line-height: 1.4;
+    z-index: 3;
+    transition: box-shadow 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-status {
+    left: calc(50% + 22px);
+    border-left: 3px solid #FF6B6B;
+}
+
+.timeline-item:nth-child(even) .timeline-status {
+    right: calc(50% + 22px);
+    border-right: 3px solid #a78bfa;
+    text-align: right;
+}
+
+.timeline-current .timeline-status {
+    border-left-color: #2dd4bf;
+}
+
+.status-short {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-full {
+    display: none;
+    font-weight: 400;
+}
+
+.status-full strong {
+    display: block;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.school:hover ~ .timeline-status {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.school:hover ~ .timeline-status .status-short {
+    display: none;
+}
+
+.school:hover ~ .timeline-status .status-full {
+    display: block;
+}
+
+.school-photo {
+    width: 170px;
+    height: 170px;
+    flex-shrink: 0;
+    position: relative;
 }
 
 .school img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    display: block;
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.school:hover img {
+    transform: scale(1.7);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+    z-index: 30;
 }
 
 .school h3 {
     margin: 0;
     color: #2c3e50;
+}
+
+.badge-current {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #2dd4bf, #5eead4);
+    padding: 3px 10px;
+    border-radius: 30px;
+    vertical-align: middle;
+    margin-left: 8px;
+    letter-spacing: 0.3px;
 }
 
 .school p {
@@ -132,16 +390,16 @@
                 padding: 25px 20px;
             }
 
-            section h1 {
+            .page-hero {
+                padding: 50px 20px 70px;
+            }
+
+            section h2 {
                 font-size: 1.6rem;
             }
 
             section p {
                 font-size: 0.95rem;
-            }
-
-            section:nth-child(3) p {
-                padding: 15px 18px;
             }
         }
 
@@ -171,12 +429,46 @@
             animation-delay: 0.5s;
         }
    @media (max-width: 600px) {
+    /* Op smalle schermen valt de "tak"-layout terug naar één kolom */
+    .schools {
+        padding-left: 30px;
+    }
+
+    .schools::before {
+        left: 6px;
+        margin-left: 0;
+        width: 3px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+    }
+
+    .timeline-item .school,
+    .timeline-item:nth-child(even) .school {
+        width: 100%;
+        border-left: 4px solid #FF6B6B;
+        border-right: none;
+    }
+
+    .timeline-marker {
+        left: -22.5px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline-status {
+        display: none;
+    }
+
     .school {
         flex-direction: column;
         text-align: center;
     }
 
-    .school img {
+    .school-photo {
         width: 100%;
         height: 180px;
     }
