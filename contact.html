@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eeshanie Lachman | Coming Soon</title>
+    <title>Eeshanie Lachman | Contact</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 
 <body>
@@ -18,23 +20,100 @@
             <a href="index.html" >Home</a>
             <a href="overmij.html">Over mij</a>
             <a href="projecten.html">Projecten</a>
-            <a href="contact.html"class="active">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
         </nav>
     </div>
 </header>
 
+<div class="page-hero">
+    <h1>Contact</h1>
+    <p class="page-hero-subtitle">Heb je een vraag of wil je samenwerken? Laat het me weten!</p>
+    <svg class="wave-divider" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,32 C240,90 480,0 720,40 C960,80 1200,10 1440,50 L1440,100 L0,100 Z"></path>
+    </svg>
+</div>
+
 <main>
-    <section class="coming-soon">
-        <h1> Coming Soon</h1>
-        <!-- <p>Deze pagina is nog in ontwikkeling. Kom binnenkort terug!</p> -->
-    </section>
+<div class="container">
+    <div class="contact-layout">
+
+        <div class="contact-info">
+            <a class="info-card" href="mailto:t.lachman@unasat.sr">
+                <span class="info-label">E-mail</span>
+                <span class="info-value">t.lachman@unasat.sr</span>
+            </a>
+            <a class="info-card" href="tel:+5978559885">
+                <span class="info-label">Telefoon</span>
+                <span class="info-value">+597 855 9885</span>
+            </a>
+            <a class="info-card" href="https://wa.me/5978559885" target="_blank" rel="noopener">
+                <span class="info-label">WhatsApp</span>
+                <span class="info-value">+597 855 9885</span>
+            </a>
+
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1553.9929099719977!2d-55.12490266849813!3d5.810171669597365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1784076238147!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </div>
+
+        <div class="contact-form-wrap">
+            <form class="contact-form" id="contactForm" method="POST" novalidate>
+                <div class="form-field">
+                    <label for="naam">Naam</label>
+                    <input type="text" id="naam" name="naam" placeholder="Je naam">
+                    <span class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="email">E-mailadres</label>
+                    <input type="email" id="email" name="email" placeholder="jij@voorbeeld.nl">
+                    <span class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="onderwerp">Onderwerp</label>
+                    <input type="text" id="onderwerp" name="onderwerp" placeholder="Waar gaat het over?">
+                    <span class="field-error"></span>
+                </div>
+
+                <div class="form-field">
+                    <label for="bericht">Bericht</label>
+                    <textarea id="bericht" name="bericht" rows="6" maxlength="500" placeholder="Vertel me wat je op je hart hebt..."></textarea>
+                    <div class="field-meta">
+                        <span class="field-error"></span>
+                        <span class="char-counter">0 / 500</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Verstuur bericht</button>
+                <p class="form-error" id="formError"></p>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+                <h2>Bedankt voor je bericht!</h2>
+                <p>Ik neem zo snel mogelijk contact met je op.</p>
+                <a href="#" class="reset-link" id="resetForm">Nog een bericht versturen?</a>
+            </div>
+        </div>
+
+    </div>
+</div>
 </main>
 
 <footer>
-    <p>❤️ Gemaakt door Eeshanie Lachman</p>
+    <div class="footer-social">
+        <a href="https://www.instagram.com/trichella_lachman/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/trichella.lachman" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+    </div>
+    <p class="footer-copy">© 2026 Eeshanie Lachman — Gemaakt met ❤️</p>
 </footer>
 
 <script src="js/index.js"></script>
+<script src="js/contact.js"></script>
 
 </body>
 </html>
